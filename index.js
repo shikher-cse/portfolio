@@ -1,4 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Dark Mode Toggle
+    const toggleButton = document.createElement("button");
+    toggleButton.classList.add("toggle-btn");
+    toggleButton.textContent = "Dark Mode";
+    document.body.appendChild(toggleButton);
+    
+    toggleButton.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+        localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+        toggleButton.textContent = document.body.classList.contains("dark-mode") ? "Light Mode" : "Dark Mode";
+    });
+    
+    if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark-mode");
+        toggleButton.textContent = "Light Mode";
+    }
+
     // Expandable sections
     document.querySelectorAll(".expand-btn").forEach(button => {
         button.addEventListener("click", function () {
@@ -70,3 +87,59 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Dark Mode Toggle
+    const toggleButton = document.createElement("button");
+    toggleButton.classList.add("toggle-btn");
+    toggleButton.textContent = "Dark Mode";
+    document.body.appendChild(toggleButton);
+
+    toggleButton.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+        const isDarkMode = document.body.classList.contains("dark-mode");
+        localStorage.setItem("darkMode", isDarkMode);
+        toggleButton.textContent = isDarkMode ? "Light Mode" : "Dark Mode";
+
+        // Enable snow effect when dark mode is ON
+        if (isDarkMode) {
+            startSnowfall();
+        } else {
+            stopSnowfall();
+        }
+    });
+
+    if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark-mode");
+        toggleButton.textContent = "Light Mode";
+        startSnowfall();
+    }
+
+    function startSnowfall() {
+        if (document.getElementById("snow-container")) return; // Prevent multiple instances
+
+        const snowContainer = document.createElement("div");
+        snowContainer.id = "snow-container";
+        document.body.appendChild(snowContainer);
+
+        for (let i = 0; i < 50; i++) {
+            let snowflake = document.createElement("div");
+            snowflake.classList.add("snowflake");
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = `${Math.random() * 10 + 10}px`;
+            snowflake.innerHTML = "❄";
+            snowContainer.appendChild(snowflake);
+        }
+    }
+
+    function stopSnowfall() {
+        const snowContainer = document.getElementById("snow-container");
+        if (snowContainer) {
+            snowContainer.remove();
+        }
+    }
+});
+
