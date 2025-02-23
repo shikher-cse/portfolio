@@ -1,1 +1,73 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+    
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>A brief introduction highlighting professional background and interests.</p>
+        <button class="expand-btn" onclick="toggleContent('about-more')">Read More</button>
+        <div id="about-more" class="hidden">
+            <p>Detailed information about skills, experience, and career aspirations.</p>
+        </div>
+    </section>
+    
+    <section id="experience" class="section">
+        <h2>Experience</h2>
+        <ul>
+            <li><strong>Job Title</strong> - Company Name (Year - Present)</li>
+            <li><strong>Previous Role</strong> - Previous Company (Year - Year)</li>
+        </ul>
+    </section>
+    
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div id="projects-list">Loading GitHub projects...</div>
+    </section>
+    
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <ul>
+            <li>Programming Languages: JavaScript, Python, Java</li>
+            <li>Frameworks: React, Node.js</li>
+            <li>Tools: Git, Docker, CI/CD</li>
+        </ul>
+    </section>
+    
+    <section id="education" class="section">
+        <h2>Education</h2>
+        <ul>
+            <li><strong>Degree</strong> - University Name (Year)</li>
+            <li><strong>Certification</strong> - Institution (Year)</li>
+        </ul>
+    </section>
+    
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+        <a href="mailto:your.email@example.com">Email</a>
+    </section>
+    
+</body>
+</html>
